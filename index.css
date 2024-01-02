@@ -1,7 +1,5 @@
-body{
-    margin: 0;
-    padding: 0;
-}
+  
+/* header & nav items*/
 
 .header{
     display: flex;
@@ -27,3 +25,34 @@ body{
     margin: 10px;
 }
 
+/* restraunt card */
+
+.res-card{
+    width: 200px;
+    height: 380px;
+    padding: 5px;
+    background-color: lightgray;
+    margin: 10px;
+    
+    
+}
+
+.res-card:hover{
+    border: 1px solid black; 
+    cursor: pointer;
+}
+
+.search{
+  padding: 10px;
+}
+
+.res-logo{
+    width: 100%;
+}
+
+.res-container{
+    display: flex;
+     align-items: start;
+    justify-content: space-around;
+    
+}
