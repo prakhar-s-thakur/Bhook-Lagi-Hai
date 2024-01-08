@@ -39,9 +39,7 @@
     cursor: pointer;
 }
 
-.search{
-  padding: 10px;
-}
+
 
 .res-logo{
     width: 100%;
@@ -50,6 +48,15 @@
 .res-container{
     display: flex;
     flex-wrap: wrap;
-  
-    justify-content: center;
+  justify-content: center;
 }
+
+/* filter */
+
+.filter{
+    padding: 10px;
+  }
+
+  .filter-btn{
+    cursor: pointer;
+  }
