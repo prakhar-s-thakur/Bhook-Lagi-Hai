@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [ListOfRestaurants, setListofRestaurants] = useState([]);
@@ -23,8 +24,6 @@ const Body = () => {
     setFilteredRestaurant(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-
-  
   };
 
   return ListOfRestaurants.length === 0 ? (
@@ -37,24 +36,23 @@ const Body = () => {
             type="text"
             className="search-box"
             value={searchText}
-              onChange={(e) => {
+            onChange={(e) => {
               setSearchText(e.target.value);
-              }}
-              
+            }}
           />
 
-            <button
-              onClick={() => {
-                const filteredRestaurant = ListOfRestaurants.filter(
-                  (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
-                );
+          <button
+            onClick={() => {
+              const filteredRestaurant = ListOfRestaurants.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
 
-                setFilteredRestaurant(filteredRestaurant);
+              setFilteredRestaurant(filteredRestaurant);
             }}
-            >search</button>
-            
-          </div>
-        
+          >
+            search
+          </button>
+        </div>
 
         <button
           className="filter-btn"
@@ -72,7 +70,13 @@ const Body = () => {
 
       <div className="res-container">
         {filteredRestaurant.map((restaurant) => (
-          <RestaurantCard key={restaurant.info?.id} resData={restaurant} />
+          <Link
+            key={restaurant.info?.id}
+           to={"/restaurants/" + restaurant.info?.id}
+          >
+            {" "}
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
